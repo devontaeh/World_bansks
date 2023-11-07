@@ -6,7 +6,7 @@ import sqlite3
 from datetime import datetime
 
 url = 'https://web.archive.org/web/20230908091635/https://en.wikipedia.org/wiki/List_of_largest_banks'
-table_attribs =["Bank Name", "MC_USD_Billion"]
+table_attribs =["Bank_Name", "MC_USD_Billion"]
 exchange_rate = "E:\Projects\largest_banks\exchange_rate.csv"
 csv_path = './Largest_banks_data.csv'
 db_name = 'Banks.db'
@@ -38,7 +38,7 @@ def extract(url, table_attribs):
         col = row.find_all('td')
         if col:
             # if col[1].find('a') is not None :   
-            data_dict = {"Bank Name": col[1].find_all('a')[1].contents[0], "MC_USD_Billion": float(col[2].contents[0].replace("\n", ""))}
+            data_dict = {"Bank_Name": col[1].find_all('a')[1].contents[0], "MC_USD_Billion": float(col[2].contents[0].replace("\n", ""))}
             data_list.append(data_dict)
             
         
@@ -76,17 +76,31 @@ def load_to_db(df, sql_connection, table_name):
     '''
     df.to_sql(table_name,sql_connection,if_exists='replace', index=False)
 
-# def run_query(query_statement, sql_connection):
+def run_query(query_statement, sql_connection):
+    '''
+    runs query -> print results
     
+    '''
+    print(query_statement)
+    print(pd.read_sql(query_statement, sql_connection))
+        
 
 
 log_progress('Preliminaries complete. Initiating ETL process')
 
 tables = extract(url, table_attribs)
-transform = transform(tables,exchange_rate)
-# print(tables)
-print(transform['MC_EUR_Billion'][4])
-load_to_csv(transform,csv_path)
-sql_connection = sqlite3.connect('Banks.db')
-load_to_db(transform,sql_connection, table_name)
 
+log_progress('Data extraction complete. Initiating Transformation process')
+transform = transform(tables,exchange_rate)
+log_progress('Data transformation complete. Initiating Loading process')
+load_to_csv(transform,csv_path)
+log_progress('Data saved to CSV file')
+sql_connection = sqlite3.connect('Banks.db')
+log_progress('SQL Connection initiated')
+load_to_db(transform,sql_connection, table_name)
+log_progress('Data loaded to Database as a table, Executing queries')
+query_statement = [f'SELECT * FROM {table_name}', f'SELECT AVG(MC_GBP_Billion) FROM {table_name}', f'SELECT {table_attribs[0]} from {table_name} LIMIT 5']
+[run_query(statement, sql_connection) for statement in query_statement]
+log_progress('Process Complete')
+sql_connection.close()
+log_progress('Server Connection closed')

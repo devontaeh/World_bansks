@@ -1,25 +1,8 @@
-2023-Nov-02-14:37:13 : Preliminaries complete. Initiating ETL process
-2023-Nov-02-14:38:09 : Preliminaries complete. Initiating ETL process
-2023-Nov-02-14:39:54 : Preliminaries complete. Initiating ETL process
-2023-Nov-05-16:42:03 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:25:16 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:26:13 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:26:36 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:27:17 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:28:53 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:31:42 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:32:02 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:32:50 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:33:05 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:33:47 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:34:27 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:34:40 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:35:02 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:35:11 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:40:32 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:45:56 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:46:11 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:46:32 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:47:44 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:53:08 : Preliminaries complete. Initiating ETL process
-2023-Nov-06-13:54:30 : Preliminaries complete. Initiating ETL process
+2023-Nov-07-14:58:32 : Preliminaries complete. Initiating ETL process
+2023-Nov-07-14:58:32 : Data extraction complete. Initiating Transformation process
+2023-Nov-07-14:58:32 : Data transformation complete. Initiating Loading process
+2023-Nov-07-14:58:32 : Data saved to CSV file
+2023-Nov-07-14:58:32 : SQL Connection initiated
+2023-Nov-07-14:58:32 : Data loaded to Database as a table, Executing queries
+2023-Nov-07-14:58:32 : Process Complete
+2023-Nov-07-14:58:32 : Server Connection closed
